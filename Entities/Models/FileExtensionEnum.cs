@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Models
 {
-    internal class Event
+    public enum FileExtensionEnum
     {
+
+        JPG = 1,
+        PGN = 2
     }
 }
