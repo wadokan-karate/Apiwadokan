@@ -15,6 +15,7 @@ namespace Logic.Logic
         public void DeleteEventById(int Id)
         {
             var chooseEvent = _serviceContext.Set<EventEntity>().Where(p => p.Id == Id).First();
+            _serviceContext.Events.Remove(chooseEvent);
             _serviceContext.SaveChanges();
         }
 

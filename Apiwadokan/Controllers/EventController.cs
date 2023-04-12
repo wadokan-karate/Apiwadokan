@@ -7,9 +7,12 @@ using System;
 
 namespace Apiwadokan.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-
+    [ApiController]
     [Route("[controller]/[action]")]
+
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+
+   // [Route("[controller]/[action]")]
     public class EventController : ControllerBase
     {
         private readonly IFileService _fileService;
@@ -27,7 +30,7 @@ namespace Apiwadokan.Controllers
             {
                 var fileItem = new FileEntity();
 
-                fileItem.FileName = newProductBase64RequestModel.Base64FileModel.FileTitle;
+                fileItem.FileName = newProductBase64RequestModel.Base64FileModel.FileName;
                 if (newProductBase64RequestModel.Base64FileModel.Extension == "image/jpeg")
                 {
                     fileItem.FileExtension = FileExtensionEnum.JPG;
@@ -44,7 +47,7 @@ namespace Apiwadokan.Controllers
                 //fileItem.Base64Content()
                 var fileId = _fileService.InsertFile(fileItem);
 
-                var productItem = newProductBase64RequestModel.Event;
+                var productItem = newProductBase64RequestModel.EventEntity; 
                 productItem.IdPhotoFile = fileId;
 
                 return _eventService.InsertEvent(productItem);
@@ -53,6 +56,37 @@ namespace Apiwadokan.Controllers
             {
                 throw;
             }
+        }
+        [HttpGet(Name = "GetAllBase64List")]
+        public List<Base64FileModel> GetAllBase64List()
+        {
+            var fileList = _fileService.GetAllFiles();
+
+            List<Base64FileModel> base64FileList = new List<Base64FileModel>();
+
+            foreach (var file in fileList)
+            {
+                Base64FileModel base64FileModel = new Base64FileModel();
+
+                base64FileModel.FileName = file.FileName;
+                base64FileModel.Base64FileContent = file.Base64Content;
+                if (file.FileExtension == FileExtensionEnum.JPG)
+                {
+                    base64FileModel.Extension = "image/jpeg";
+                }
+                else if (file.FileExtension == FileExtensionEnum.PGN)
+                {
+                    base64FileModel.Extension = "image/png";
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
+
+                base64FileList.Add(base64FileModel);
+            }
+
+            return base64FileList;
         }
         [HttpGet(Name = "GetFullProductsInfo")]
         public List<FullProductInfoModel> GetFullProductsInfo()
@@ -72,7 +106,7 @@ namespace Apiwadokan.Controllers
 
                 Base64FileModel base64FileModel = new Base64FileModel();
 
-                base64FileModel.FileTitle = fileItem.FileName;
+                base64FileModel.FileName = fileItem.FileName;
                 base64FileModel.Base64FileContent = fileItem.Base64Content;
                 if (fileItem.FileExtension == FileExtensionEnum.JPG)
                 {
@@ -93,6 +127,16 @@ namespace Apiwadokan.Controllers
             }
 
             return resultList;
+        }
+        [HttpDelete(Name = "DeleteProduct")]
+        public void DeleteById(int id)
+        {
+            _eventService.DeleteEventById(id);
+        }
+        [HttpPatch(Name = "PatchProduct")]
+        public int Patch([FromBody] EventEntity product)
+        {
+            return _eventService.PatchEvent(product);
         }
     }
 }
