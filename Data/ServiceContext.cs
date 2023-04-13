@@ -17,6 +17,7 @@ namespace Data
         public ServiceContext(DbContextOptions<ServiceContext> options) : base(options) { }
         public DbSet<EventEntity> Events { get; set; }
         public DbSet<FileEntity> Files { get; set; }
+        public DbSet<FileEntity> Schedules { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<EventEntity>(entity =>
@@ -31,6 +32,10 @@ namespace Data
             {
                 user.ToTable("t_files");
             });
+
+            builder.Entity<ScheduleEntity>()
+            .ToTable("Schedules");
+
 
             foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {

@@ -23,15 +23,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IEventLogic,EventLogic>();
+builder.Services.AddScoped<IEventLogic, EventLogic>();
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IFileLogic, FileLogic>();
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
+builder.Services.AddScoped<IScheduleLogic, ScheduleLogic>();
 
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
     builder =>
@@ -40,7 +42,7 @@ builder.Services.AddDbContext<ServiceContext>(
                 .AllowAnyMethod()
                 .AllowAnyHeader();
     });
-});*/
+});
 
 var app = builder.Build();
 

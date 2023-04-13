@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj": {}
+    "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj": {
+    "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj",
+        "projectUniqueName": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj",
         "projectName": "Apiwadokan",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Apiwadokan\\obj\\",
+        "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Apiwadokan\\Apiwadokan.csproj",
+        "packagesPath": "C:\\Users\\mctri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Apiwadokan\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mctri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,14 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj"
               },
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\Logic.csproj"
               }
             }
           }
@@ -58,7 +54,19 @@
               "target": "Package",
               "version": "[5.2.9, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel": {
               "target": "Package",
               "version": "[7.0.0, )"
             },
@@ -86,25 +94,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj": {
+    "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\obj\\",
+        "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\mctri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mctri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,8 +122,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj"
               }
             }
           }
@@ -173,25 +177,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj": {
+    "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\mctri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mctri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -246,25 +246,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj": {
+    "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\obj\\",
+        "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\mctri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Logic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mctri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -278,11 +274,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Data\\Data.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Data\\Data.csproj"
               },
-              "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj"
+              "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\mctri\\FactoriaF5-FemCoder\\proyectos\\wadokan\\Apiwadokan\\Entities\\Entities.csproj"
               }
             }
           }
@@ -318,7 +314,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
