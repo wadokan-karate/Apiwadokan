@@ -78,11 +78,79 @@ namespace Data.Migrations
                     b.ToTable("t_files", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Entities.UserEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EncryptedPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EncryptedToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("TokenExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdRol");
+
+                    b.ToTable("t_users", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Entities.UserRolEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_user_rols", (string)null);
+                });
+
             modelBuilder.Entity("Entities.Entities.EventEntity", b =>
                 {
                     b.HasOne("Entities.Entities.FileEntity", null)
                         .WithMany()
                         .HasForeignKey("IdPhotoFile")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Entities.UserEntity", b =>
+                {
+                    b.HasOne("Entities.Entities.UserRolEntity", null)
+                        .WithMany()
+                        .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

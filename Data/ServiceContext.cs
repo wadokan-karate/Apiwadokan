@@ -19,6 +19,7 @@ namespace Data
         public DbSet<FileEntity> Files { get; set; }
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<UserRolEntity> UserRols { get; set; }
+        public DbSet<ResourceEntity> Resources { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<EventEntity>(entity =>
@@ -43,6 +44,10 @@ namespace Data
             {
                 user.ToTable("t_user_rols");
                 user.Property(r => r.Id).ValueGeneratedNever();
+            });
+            builder.Entity<ResourceEntity>(user =>
+            {
+                user.ToTable("Resources");
             });
 
             foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))

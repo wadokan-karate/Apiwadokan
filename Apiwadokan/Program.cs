@@ -65,6 +65,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
+builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
+builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));

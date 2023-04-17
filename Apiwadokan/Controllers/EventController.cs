@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Entities.Entities;
 using System.Web.Http.Cors;
 using System;
+using Apiwadokan.Attributes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Apiwadokan.Controllers
 {
@@ -23,6 +25,7 @@ namespace Apiwadokan.Controllers
             _fileService = fileService;
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostBase64")]
         public int PostBase64([FromBody] NewProductBase64Request newProductBase64RequestModel)
         {
@@ -57,6 +60,7 @@ namespace Apiwadokan.Controllers
                 throw;
             }
         }
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllBase64List")]
         public List<Base64FileModel> GetAllBase64List()
         {
@@ -88,6 +92,7 @@ namespace Apiwadokan.Controllers
 
             return base64FileList;
         }
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetFullProductsInfo")]
         public List<FullProductInfoModel> GetFullProductsInfo()
         {
@@ -128,11 +133,13 @@ namespace Apiwadokan.Controllers
 
             return resultList;
         }
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteProduct")]
         public void DeleteById(int id)
         {
             _eventService.DeleteEventById(id);
         }
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPatch(Name = "PatchProduct")]
         public int Patch([FromBody] EventEntity product)
         {

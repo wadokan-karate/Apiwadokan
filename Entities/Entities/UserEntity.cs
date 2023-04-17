@@ -8,7 +8,7 @@ namespace Entities.Entities
 {
     public  class UserEntity
     {
-        public UserEntity() { }
+       // public UserEntity() { }
         public int Id { get; set; }
         public int IdRol { get; set; }
         public string UserName { get; set; }

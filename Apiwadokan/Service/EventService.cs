@@ -38,6 +38,11 @@ namespace Apiwadokan.Service
             _eventLogic.PatchEvent(product);
             return product.Id;
         }
+
+        public void AddEvent(EventEntity newEvent)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 
