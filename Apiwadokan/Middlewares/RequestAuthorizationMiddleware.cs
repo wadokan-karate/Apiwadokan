@@ -13,6 +13,12 @@ namespace Apiwadokan.Middlewares
 
         public void ValidateRequestAutorizathion(HttpContext context)
         {
+           if(context.Request.Method == "OPTIONS")
+            {
+                return;
+            }
+            
+            
             EndpointAuthorizeAttribute authorization = new EndpointAuthorizeAttribute(context);
 
             if (authorization.Values.AllowsAnonymous)
