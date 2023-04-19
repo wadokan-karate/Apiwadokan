@@ -78,7 +78,11 @@ namespace Data.Migrations
                     b.ToTable("t_files", (string)null);
                 });
 
+<<<<<<< HEAD
+            modelBuilder.Entity("Entities.Entities.UserEntity", b =>
+=======
             modelBuilder.Entity("Entities.Entities.ScheduleEntity", b =>
+>>>>>>> main
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,6 +90,21 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
+                    b.Property<string>("EncryptedPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EncryptedToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+=======
                     b.Property<string>("Age")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -101,20 +120,43 @@ namespace Data.Migrations
                     b.Property<string>("Day")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+>>>>>>> main
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+<<<<<<< HEAD
+                    b.Property<DateTime>("TokenExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+=======
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TimeRange")
+>>>>>>> main
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+<<<<<<< HEAD
+                    b.HasIndex("IdRol");
+
+                    b.ToTable("t_users", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Entities.UserRolEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+=======
                     b.ToTable("Schedules", (string)null);
                 });
 
@@ -126,6 +168,7 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+>>>>>>> main
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -133,6 +176,11 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
+                    b.HasKey("Id");
+
+                    b.ToTable("t_user_rols", (string)null);
+=======
                     b.Property<string>("Photo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -140,6 +188,7 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Trainers", (string)null);
+>>>>>>> main
                 });
 
             modelBuilder.Entity("Entities.Entities.EventEntity", b =>
@@ -147,6 +196,15 @@ namespace Data.Migrations
                     b.HasOne("Entities.Entities.FileEntity", null)
                         .WithMany()
                         .HasForeignKey("IdPhotoFile")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Entities.UserEntity", b =>
+                {
+                    b.HasOne("Entities.Entities.UserRolEntity", null)
+                        .WithMany()
+                        .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

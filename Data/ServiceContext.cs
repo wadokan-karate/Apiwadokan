@@ -17,8 +17,14 @@ namespace Data
         public ServiceContext(DbContextOptions<ServiceContext> options) : base(options) { }
         public DbSet<EventEntity> Events { get; set; }
         public DbSet<FileEntity> Files { get; set; }
+<<<<<<< HEAD
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserRolEntity> UserRols { get; set; }
+        public DbSet<ResourceEntity> Resources { get; set; }
+=======
         public DbSet<ScheduleEntity> Schedules { get; set; }
         public DbSet<TrainerEntity> Trainers { get; set; }
+>>>>>>> main
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<EventEntity>(entity =>
@@ -32,6 +38,21 @@ namespace Data
             builder.Entity<FileEntity>(user =>
             {
                 user.ToTable("t_files");
+            });
+            builder.Entity<UserEntity>(user =>
+            {
+                user.ToTable("t_users");
+                user.HasOne<UserRolEntity>().WithMany().HasForeignKey(u => u.IdRol);
+            });
+
+            builder.Entity<UserRolEntity>(user =>
+            {
+                user.ToTable("t_user_rols");
+                user.Property(r => r.Id).ValueGeneratedNever();
+            });
+            builder.Entity<ResourceEntity>(user =>
+            {
+                user.ToTable("Resources");
             });
 
             builder.Entity<ScheduleEntity>()
