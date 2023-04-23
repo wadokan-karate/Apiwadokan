@@ -2,6 +2,9 @@
 using Entities.Entities;
 using Logic.ILogic;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Logic.Logic
 {
@@ -13,40 +16,38 @@ namespace Logic.Logic
             _serviceContext = serviceContext;
         }
 
-        public void UpdateTrainer(TrainerEntity trainerEntity)
+        public async Task UpdateTrainerAsync(TrainerEntity trainerEntity)
         {
             _serviceContext.Trainers.Update(trainerEntity);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public int InsertTrainer(TrainerEntity trainerEntity)
+        public async Task<int> InsertTrainerAsync(TrainerEntity trainerEntity)
         {
             _serviceContext.Set<TrainerEntity>().Add(trainerEntity);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
             return trainerEntity.Id;
         }
 
-        public void DeleteTrainer(int id)
+        public async Task DeleteTrainerAsync(int id)
         {
-            var trainerToDelete = _serviceContext.Set<TrainerEntity>()
-                 .Where(u => u.Id == id).First();
+            var trainerToDelete = await _serviceContext.Set<TrainerEntity>()
+                 .Where(u => u.Id == id).FirstAsync();
 
             trainerToDelete.IsActive = false;
 
-            _serviceContext.SaveChangesAsync();
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public List<TrainerEntity> GetAllTrainers()
+        public async Task<List<TrainerEntity>> GetAllTrainersAsync()
         {
-            return _serviceContext.Set<TrainerEntity>().ToList();
-        }
-        public TrainerEntity GetTrainerById(int id)
-        {
-            return _serviceContext.Set<TrainerEntity>()
-                    .Where(u => u.Id == id).First();
+            return await _serviceContext.Set<TrainerEntity>().ToListAsync();
         }
 
+        public async Task<TrainerEntity> GetTrainerByIdAsync(int id)
+        {
+            return await _serviceContext.Set<TrainerEntity>()
+                    .Where(u => u.Id == id).FirstAsync();
+        }
     }
-
 }
-

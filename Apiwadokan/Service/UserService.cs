@@ -2,6 +2,9 @@
 using Entities.Entities;
 using Entities.Models;
 using Logic.ILogic;
+using Logic.Logic;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
@@ -15,30 +18,31 @@ namespace Apiwadokan.Service
             _userSecurityLogic = userSecurityLogic;
         }
 
-        public void DeleteUser(int id)
+        public async Task DeleteUserAsync(int id)
         {
-            _userLogic.DeleteUser(id);
+            await _userLogic.DeleteUserAsync(id);
         }
 
-        public List<UserEntity> GetAllUsers()
+        public async Task<List<UserEntity>> GetAllUsersAsync()
         {
-            return _userLogic.GetAllUsers();
+            return await _userLogic.GetAllUsersAsync();
         }
 
-       
+        public async Task<UserEntity> GetUserByIdAsync(int id)
+        {
+            return await _userLogic.GetUserByIdAsync(id);
+        }
 
-        public int InsertUser(NewUserRequest newUserRequest)
+        public async Task<int> InsertUserAsync(NewUserRequest newUserRequest)
         {
             var newUserItem = newUserRequest.ToUserItem();
-            newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
-            return _userLogic.InsertUser(newUserItem);
+            newUserItem.EncryptedPassword = await _userSecurityLogic.HashStringAsync(newUserRequest.Password);
+            return await _userLogic.InsertUserAsync(newUserItem);
         }
 
-        public void UpdateUser(UserEntity userItem)
+        public async Task UpdateUserAsync(UserEntity userItem)
         {
-            _userLogic.UpdateUser(userItem);
+            await _userLogic.UpdateUserAsync(userItem);
         }
     }
-
-
 }

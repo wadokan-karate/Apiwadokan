@@ -1,47 +1,44 @@
 ﻿using Apiwadokan.IService;
 using Entities.Entities;
 using Logic.ILogic;
+using Logic.Logic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
     public class ResourceService : IResourceService
     {
-        //private readonly IProductService _productService;
         private readonly IResourceLogic _resourceLogic;
         public ResourceService(IResourceLogic resourceLogic)
         {
             _resourceLogic = resourceLogic;
-
         }
 
-        public void DeleteResourceById(int id)
+        public async Task<int> InsertResourceAsync(ResourceEntity resourceEntity)
         {
-            _resourceLogic.DeleteResourceById(id);
+            await _resourceLogic.InsertResourceAsync(resourceEntity);
+            return resourceEntity.Id;
         }
 
-        public List<ResourceEntity> GetResource()
+        public async Task<List<ResourceEntity>> GetAllResourcesAsync()
         {
-            return _resourceLogic.GetResource();
+            return await _resourceLogic.GetAllResourcesAsync();
         }
 
-        public List<ResourceEntity> GetAllResources()
+        public async Task<ResourceEntity> GetResourceByIdAsync(int id)
         {
-            return _resourceLogic.GetAllResources();
-        }
-        public int InsertResource(ResourceEntity product)
-        {
-            _resourceLogic.InsertResource(product);
-            return product.Id;
+            return await _resourceLogic.GetResourceByIdAsync(id);
         }
 
-        public int PatchResource(ResourceEntity product)
+        public async Task UpdateResourceAsync(ResourceEntity resourceEntity)
         {
-            _resourceLogic.PatchResource(product);
-            return product.Id;
+            await _resourceLogic.UpdateResourceAsync(resourceEntity);
         }
+
+        public async Task DeleteResourceAsync(int id)
+        {
+            await _resourceLogic.DeleteResourceAsync(id);
+        }
+
     }
-
-
 }
-
-

@@ -9,9 +9,10 @@ namespace Logic.ILogic
 {
     public interface IUserLogic
     {
-        int InsertUser(UserEntity userItem);
-        void UpdateUser(UserEntity userItem);
-        void DeleteUser(int id);
-        List<UserEntity> GetAllUsers();
+        Task<int> InsertUserAsync(UserEntity userItem);
+        Task UpdateUserAsync(UserEntity userItem);
+        Task DeleteUserAsync(int id);
+        Task<List<UserEntity>> GetAllUsersAsync();
+        Task<UserEntity> GetUserByIdAsync(int id);
     }
 }

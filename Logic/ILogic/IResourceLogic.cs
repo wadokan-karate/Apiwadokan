@@ -9,11 +9,10 @@ namespace Logic.ILogic
 {
     public interface IResourceLogic
     {
-        void DeleteResourceById(int Id);
-        List<ResourceEntity> GetResource();
-        List<ResourceEntity> GetAllResources();
-        void InsertResource(ResourceEntity product);
-       
-        void PatchResource(ResourceEntity product);
+        Task<int> InsertResourceAsync(ResourceEntity resourceEntity);
+        Task UpdateResourceAsync(ResourceEntity resourceEntity);
+        Task DeleteResourceAsync(int id);
+        Task<List<ResourceEntity>> GetAllResourcesAsync();
+        Task<ResourceEntity> GetResourceByIdAsync(int id);
     }
 }

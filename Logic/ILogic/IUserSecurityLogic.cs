@@ -8,8 +8,8 @@ namespace Logic.ILogic
 {
     public interface IUserSecurityLogic
     {
-        string GenerateAuthorizationToken(string userName, string userPasswordEncrypted);
-        string HashString(string key);
-        bool ValidateUserToken(string userName, string token, List<string> authorizedRols);
+        Task<string> GenerateAuthorizationTokenAsync(string userName, string userPasswordEncrypted);
+        Task<string> HashStringAsync(string key);
+        Task<bool> ValidateUserTokenAsync(string userName, string token, List<string> authorizedRols);
     }
 }

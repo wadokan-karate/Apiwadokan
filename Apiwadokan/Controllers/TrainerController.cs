@@ -1,58 +1,59 @@
-﻿using Apiwadokan.IService;
+﻿using Apiwadokan.Attributes;
+using Apiwadokan.IService;
 using Entities.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Web.Http.Cors;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [ApiController]
+    [EnableCors]
     [Route("[controller]/[action]")]
     public class TrainerController : ControllerBase
     {
-        private readonly ILogger<TrainerController> _logger;
         private readonly ITrainerService _trainerService;
-        public TrainerController(ILogger<TrainerController> logger, ITrainerService trainerService)
+
+        public TrainerController(ITrainerService trainerService)
         {
-            _logger = logger;
             _trainerService = trainerService;
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertTrainer")]
-        public int Post([FromBody] TrainerEntity scheduleEntity)
+        public async Task<int> InsertTrainer([FromBody] TrainerEntity trainerEntity)
         {
-
-            return _trainerService.InsertTrainer(scheduleEntity);
-
+            return await _trainerService.InsertTrainerAsync(trainerEntity);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllTrainers")]
-        public List<TrainerEntity> GetAllTrainers()
+        public async Task<List<TrainerEntity>> GetAllTrainers()
         {
-            return _trainerService.GetAllTrainers();
-
+            return await _trainerService.GetAllTrainersAsync();
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetTrainerById")]
-        public TrainerEntity GetTrainerById(int id)
-
+        public async Task<TrainerEntity> GetTrainerById(int id)
         {
-            return _trainerService.GetTrainerById(id);
-
+            return await _trainerService.GetTrainerByIdAsync(id);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPatch(Name = "UpdateTrainer")]
-        public void UpdateTrainer([FromBody] TrainerEntity trainerEntity)
+        public async Task UpdateTrainer([FromBody] TrainerEntity trainerEntity)
         {
-
-            _trainerService.UpdateTrainer(trainerEntity);
-
+            await _trainerService.UpdateTrainerAsync(trainerEntity);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteTrainer")]
-        public void DeleteTrainer([FromQuery] int id)
+        public async Task DeleteTrainer([FromQuery] int id)
         {
-            _trainerService.DeleteTrainer(id);
-
+            await _trainerService.DeleteTrainerAsync(id);
         }
     }
 }

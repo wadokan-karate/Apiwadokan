@@ -1,58 +1,57 @@
-﻿using Apiwadokan.IService;
+﻿using Apiwadokan.Attributes;
+using Apiwadokan.IService;
 using Entities.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Web.Http.Cors;
 
 namespace Apiwadokan.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [ApiController]
+    [EnableCors]
     [Route("[controller]/[action]")]
     public class ScheduleController : ControllerBase
     {
-        private readonly ILogger<ScheduleController> _logger;
         private readonly IScheduleService _scheduleService;
-        public ScheduleController(ILogger<ScheduleController> logger, IScheduleService scheduleService)
+
+        public ScheduleController(IScheduleService scheduleService)
         {
-            _logger = logger;
             _scheduleService = scheduleService;
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertSchedule")]
-        public int Post([FromBody] ScheduleEntity scheduleEntity)
+        public async Task<int> InsertSchedule([FromBody] ScheduleEntity scheduleEntity)
         {
-
-            return _scheduleService.InsertSchedule(scheduleEntity);
-
+            return await _scheduleService.InsertScheduleAsync(scheduleEntity);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllSchedules")]
-        public List<ScheduleEntity> GetAllSchedules()
+        public async Task<List<ScheduleEntity>> GetAllSchedules()
         {
-            return _scheduleService.GetAllSchedules();
-
+            return await _scheduleService.GetAllSchedulesAsync();
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetScheduleById")]
-        public ScheduleEntity GetScheduleById(int id)
-
+        public async Task<ScheduleEntity> GetScheduleById(int id)
         {
-            return _scheduleService.GetScheduleById(id);
-
+            return await _scheduleService.GetScheduleByIdAsync(id);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPatch(Name = "UpdateSchedule")]
-        public void UpdateSchedule([FromBody] ScheduleEntity scheduleEntity)
+        public async Task UpdateSchedule([FromBody] ScheduleEntity scheduleEntity)
         {
-
-            _scheduleService.UpdateSchedule(scheduleEntity);
-
+            await _scheduleService.UpdateScheduleAsync(scheduleEntity);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteSchedule")]
-        public void DeleteSchedule([FromQuery] int id)
+        public async Task DeleteSchedule([FromQuery] int id)
         {
-            _scheduleService.DeleteSchedule(id);
-
+            await _scheduleService.DeleteScheduleAsync(id);
         }
     }
 }

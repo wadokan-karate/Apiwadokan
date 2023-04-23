@@ -1,6 +1,7 @@
 ﻿using Data;
 using Entities.Entities;
 using Logic.ILogic;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,10 @@ namespace Logic.Logic
             _serviceContext = serviceContext;
         }
 
-        public string GenerateAuthorizationToken(string userName, string userPassword)
+        public async Task<string> GenerateAuthorizationTokenAsync(string userName, string userPassword)
         {
-            var user = _serviceContext.Set<UserEntity>()
-                     .Where(u => u.UserName == userName).SingleOrDefault();
+            var user = await _serviceContext.Set<UserEntity>()
+                     .Where(u => u.UserName == userName).SingleOrDefaultAsync();
 
             if (user == null)
             {
@@ -40,23 +41,23 @@ namespace Logic.Logic
             }
 
             var secureRandomString = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
-            user.EncryptedToken = HashString(secureRandomString);
+            user.EncryptedToken = await HashStringAsync(secureRandomString);
             user.TokenExpireDate = DateTime.Now.AddMinutes(10);
 
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
 
             return secureRandomString;
         }
 
-        public string HashString(string key)
+        public async Task<string> HashStringAsync(string key)
         {
-            return BCrypt.Net.BCrypt.HashPassword(key);
+            return await Task.FromResult(BCrypt.Net.BCrypt.HashPassword(key));
         }
 
-        public bool ValidateUserToken(string userName, string token, List<string> authorizedRols)
+        public async Task<bool> ValidateUserTokenAsync(string userName, string token, List<string> authorizedRols)
         {
-            var user = _serviceContext.Set<UserEntity>()
-                     .Where(u => u.UserName == userName).FirstOrDefault();
+            var user = await _serviceContext.Set<UserEntity>()
+                     .Where(u => u.UserName == userName).FirstOrDefaultAsync();
 
             if (user == null)
             {
@@ -68,7 +69,7 @@ namespace Logic.Logic
                 throw new InvalidCredentialException("El usuario no está activo.");
             }
 
-            var userRol = _serviceContext.Set<UserRolEntity>().Where(r => r.Id == user.IdRol).First();
+            var userRol = await _serviceContext.Set<UserRolEntity>().Where(r => r.Id == user.IdRol).FirstAsync();
 
             bool authorizedRol = authorizedRols.Any(r => r.Equals(userRol.Name));
 
@@ -88,7 +89,7 @@ namespace Logic.Logic
             }
 
             user.TokenExpireDate = DateTime.Now.AddMinutes(10);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
 
             return true;
         }

@@ -1,11 +1,11 @@
 ﻿using Apiwadokan.IService;
 using Entities.Entities;
 using Logic.ILogic;
-using Logic.Logic;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
-
     public class TrainerService : ITrainerService
     {
         private readonly ITrainerLogic _trainerLogic;
@@ -14,30 +14,31 @@ namespace Apiwadokan.Service
             _trainerLogic = trainerLogic;
         }
 
-        public int InsertTrainer(TrainerEntity trainerEntity)
+        public async Task<int> InsertTrainerAsync(TrainerEntity trainerEntity)
         {
-            _trainerLogic.InsertTrainer(trainerEntity);
+            await _trainerLogic.InsertTrainerAsync(trainerEntity);
             return trainerEntity.Id;
         }
 
-        public List<TrainerEntity> GetAllTrainers()
+        public async Task<List<TrainerEntity>> GetAllTrainersAsync()
         {
-            return _trainerLogic.GetAllTrainers();
+            return await _trainerLogic.GetAllTrainersAsync();
         }
 
-        public TrainerEntity GetTrainerById(int id)
+        public async Task<TrainerEntity> GetTrainerByIdAsync(int id)
         {
-            return _trainerLogic.GetTrainerById(id);
+            return await _trainerLogic.GetTrainerByIdAsync(id);
         }
 
-        public void UpdateTrainer(TrainerEntity trainerEntity)
+        public async Task UpdateTrainerAsync(TrainerEntity trainerEntity)
         {
-            _trainerLogic.UpdateTrainer(trainerEntity);
+            await _trainerLogic.UpdateTrainerAsync(trainerEntity);
         }
 
-        public void DeleteTrainer(int id)
+        public async Task DeleteTrainerAsync(int id)
         {
-            _trainerLogic.DeleteTrainer(id);
+            await _trainerLogic.DeleteTrainerAsync(id);
         }
+
     }
 }

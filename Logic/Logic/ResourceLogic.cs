@@ -1,6 +1,7 @@
 ﻿using Data;
 using Entities.Entities;
 using Logic.ILogic;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,39 +13,41 @@ namespace Logic.Logic
     public class ResourceLogic : BaseContextLogic, IResourceLogic
     {
         public ResourceLogic(ServiceContext serviceContext) : base(serviceContext) { }
-        public void DeleteResourceById(int Id)
+
+        public async Task UpdateResourceAsync(ResourceEntity resourceEntity)
         {
-            var chooseResource = _serviceContext.Set<ResourceEntity>().Where(p => p.Id == Id).First();
-            _serviceContext.Resources.Remove(chooseResource);
-            _serviceContext.SaveChanges();
+            _serviceContext.Resources.Update(resourceEntity);
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public void InsertResource(ResourceEntity product)
+        public async Task<int> InsertResourceAsync(ResourceEntity resourceEntity)
         {
-            _serviceContext.Resources.Add(product);
-            _serviceContext.SaveChanges();
+            _serviceContext.Set<ResourceEntity>().Add(resourceEntity);
+            await _serviceContext.SaveChangesAsync();
+            return resourceEntity.Id;
         }
 
-        public void PatchResource(ResourceEntity product)
+        public async Task DeleteResourceAsync(int id)
         {
-            _serviceContext.Resources.Update(product);
-            _serviceContext.SaveChanges();
+            var resourceToDelete = await _serviceContext.Set<ResourceEntity>()
+                .Where(u => u.Id == id).FirstAsync();
+
+            resourceToDelete.IsActive = false;
+
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public List<ResourceEntity> GetResource()
+        public async Task<List<ResourceEntity>> GetAllResourcesAsync()
         {
-            return _serviceContext.Set<ResourceEntity>().ToList();
-
-        }
-        public List<ResourceEntity> GetAllResources()
-        {
-            return _serviceContext.Set<ResourceEntity>().ToList();
-
+            return await _serviceContext.Set<ResourceEntity>().ToListAsync();
         }
 
-
+        public async Task<ResourceEntity> GetResourceByIdAsync(int id)
+        {
+            return await _serviceContext.Set<ResourceEntity>()
+                .Where(u => u.Id == id).FirstAsync();
+        }
     }
 }
 
-    
 

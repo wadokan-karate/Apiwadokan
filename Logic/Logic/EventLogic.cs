@@ -1,10 +1,10 @@
 ﻿using Data;
 using Entities.Entities;
 using Logic.ILogic;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic.Logic
@@ -12,36 +12,39 @@ namespace Logic.Logic
     public class EventLogic : BaseContextLogic, IEventLogic
     {
         public EventLogic(ServiceContext serviceContext) : base(serviceContext) { }
-        public void DeleteEventById(int Id)
+
+        public async Task UpdateEventAsync(EventEntity eventEntity)
         {
-            var chooseEvent = _serviceContext.Set<EventEntity>().Where(p => p.Id == Id).First();
-            _serviceContext.Events.Remove(chooseEvent);
-            _serviceContext.SaveChanges();
+            _serviceContext.Events.Update(eventEntity);
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public void InsertEvent(EventEntity product)
+        public async Task<int> InsertEventAsync(EventEntity eventEntity)
         {
-            _serviceContext.Events.Add(product);
-            _serviceContext.SaveChanges();
+            _serviceContext.Set<EventEntity>().Add(eventEntity);
+            await _serviceContext.SaveChangesAsync();
+            return eventEntity.Id;
         }
 
-        public void PatchEvent(EventEntity product)
+        public async Task DeleteEventAsync(int id)
         {
-            _serviceContext.Events.Update(product);
-            _serviceContext.SaveChanges();
+            var eventToDelete = await _serviceContext.Set<EventEntity>()
+                 .Where(u => u.Id == id).FirstAsync();
+
+            eventToDelete.IsActive = false;
+
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public List<EventEntity> GetEvent()
+        public async Task<List<EventEntity>> GetAllEventsAsync()
         {
-            return _serviceContext.Set<EventEntity>().ToList();
-
-        }
-        public List<EventEntity> GetAllEvents()
-        {
-            return _serviceContext.Set<EventEntity>().ToList();
-
+            return await _serviceContext.Set<EventEntity>().ToListAsync();
         }
 
-       
+        public async Task<EventEntity> GetEventByIdAsync(int id)
+        {
+            return await _serviceContext.Set<EventEntity>()
+                    .Where(u => u.Id == id).FirstOrDefaultAsync();
+        }
     }
 }

@@ -2,42 +2,44 @@
 using Entities.Entities;
 using Logic.ILogic;
 using Logic.Logic;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
 
-    public class ScheduleService: IScheduleService
+    public class ScheduleService : IScheduleService
     {
         private readonly IScheduleLogic _scheduleLogic;
         public ScheduleService(IScheduleLogic scheduleLogic)
         {
             _scheduleLogic = scheduleLogic;
         }
- 
-        public int InsertSchedule(ScheduleEntity scheduleEntity)
+
+        public async Task<int> InsertScheduleAsync(ScheduleEntity scheduleEntity)
         {
-            _scheduleLogic.InsertSchedule(scheduleEntity);
+            await _scheduleLogic.InsertScheduleAsync(scheduleEntity);
             return scheduleEntity.Id;
         }
 
-        public List<ScheduleEntity> GetAllSchedules()
+        public async Task<List<ScheduleEntity>> GetAllSchedulesAsync()
         {
-            return _scheduleLogic.GetAllSchedules();
+            return await _scheduleLogic.GetAllSchedulesAsync();
         }
 
-        public ScheduleEntity GetScheduleById(int id)
+        public async Task<ScheduleEntity> GetScheduleByIdAsync(int id)
         {
-            return _scheduleLogic.GetScheduleById(id);
+            return await _scheduleLogic.GetScheduleByIdAsync(id);
         }
 
-        public void UpdateSchedule(ScheduleEntity scheduleEntity)
+        public async Task UpdateScheduleAsync(ScheduleEntity scheduleEntity)
         {
-           _scheduleLogic.UpdateSchedule(scheduleEntity);
+            await _scheduleLogic.UpdateScheduleAsync(scheduleEntity);
         }
 
-        public void DeleteSchedule(int id)
+        public async Task DeleteScheduleAsync(int id)
         {
-            _scheduleLogic.DeleteSchedule(id);
+            await _scheduleLogic.DeleteScheduleAsync(id);
         }
     }
 }

@@ -2,6 +2,9 @@
 using Entities.Entities;
 using Logic.ILogic;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Logic.Logic
 {
@@ -13,40 +16,39 @@ namespace Logic.Logic
             _serviceContext = serviceContext;
         }
 
-        public void UpdateSchedule(ScheduleEntity scheduleEntity)
+        public async Task UpdateScheduleAsync(ScheduleEntity scheduleEntity)
         {
             _serviceContext.Schedules.Update(scheduleEntity);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public int InsertSchedule(ScheduleEntity scheduleEntity)
+        public async Task<int> InsertScheduleAsync(ScheduleEntity scheduleEntity)
         {
             _serviceContext.Set<ScheduleEntity>().Add(scheduleEntity);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
             return scheduleEntity.Id;
         }
 
-        public void DeleteSchedule(int id)
+        public async Task DeleteScheduleAsync(int id)
         {
-            var scheduleToDelete = _serviceContext.Set<ScheduleEntity>()
-                 .Where(u => u.Id == id).First();
+            var scheduleToDelete = await _serviceContext.Set<ScheduleEntity>()
+                 .Where(u => u.Id == id).FirstAsync();
 
             scheduleToDelete.IsActive = false;
 
-           _serviceContext.SaveChangesAsync();
+            await _serviceContext.SaveChangesAsync();
         }
 
-        public List<ScheduleEntity> GetAllSchedules()
+        public async Task<List<ScheduleEntity>> GetAllSchedulesAsync()
         {
-            return _serviceContext.Set<ScheduleEntity>().ToList();
+            return await _serviceContext.Set<ScheduleEntity>().ToListAsync();
         }
-        public ScheduleEntity GetScheduleById(int id)
+
+        public async Task<ScheduleEntity> GetScheduleByIdAsync(int id)
         {
-            return _serviceContext.Set<ScheduleEntity>()
-                    .Where(u => u.Id == id).First();
+            return await _serviceContext.Set<ScheduleEntity>()
+                    .Where(u => u.Id == id).FirstOrDefaultAsync();
         }
 
     }
-
 }
-
