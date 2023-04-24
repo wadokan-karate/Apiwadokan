@@ -12,7 +12,7 @@ namespace Apiwadokan.Controllers
     [ApiController]
     [Route("[controller]/[action]")]
 
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
 
    // [Route("[controller]/[action]")]
     public class EventController : ControllerBase

@@ -19,9 +19,9 @@ namespace Logic.Logic
             _serviceContext.SaveChanges();
         }
 
-        public void InsertEvent(EventEntity product)
+        public void InsertEvent(EventEntity eventEntity)
         {
-            _serviceContext.Events.Add(product);
+            _serviceContext.Events.Add(eventEntity);
             _serviceContext.SaveChanges();
         }
 

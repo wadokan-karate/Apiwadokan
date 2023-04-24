@@ -12,7 +12,7 @@ namespace Logic.ILogic
         void DeleteEventById(int Id);
         List<EventEntity> GetEvent();
         List<EventEntity> GetAllEvents();
-        void InsertEvent(EventEntity product);
+        void InsertEvent(EventEntity eventEntity);
         void PatchEvent(EventEntity product);
     }
 }

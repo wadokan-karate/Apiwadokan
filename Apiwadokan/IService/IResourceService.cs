@@ -7,7 +7,7 @@ namespace Apiwadokan.IService
         void DeleteResourceById(int id);
         List<ResourceEntity> GetResource();
         List<ResourceEntity> GetAllResources();
-        int InsertResource(ResourceEntity product);
-        int PatchResource(ResourceEntity product);
+        int InsertResource(ResourceEntity resourceEntity);
+        int PatchResource(ResourceEntity resourceEntity);
     }
 }

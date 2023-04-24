@@ -22,11 +22,21 @@ namespace Apiwadokan.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "LoginUser")]
-        public string Login([FromBody] LoginRequest loginRequest)
-        {
 
-            return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
+        public Tuple <string,int> Login([FromBody] LoginRequest loginRequest)
+        {
+            var UsersData = _userService.GetAllUsers();
+            UserEntity user = UsersData.Where(user=> user.UserName== loginRequest.UserName).First();
+            int userIdRol = user.IdRol;
+            string token = _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
+            return new Tuple<string, int> ( token, userIdRol );
+
         }
+        //public string Login([FromBody] LoginRequest loginRequest)
+        //{
+
+        //    return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
+        //}
 
         [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpPost(Name = "InsertUser")]

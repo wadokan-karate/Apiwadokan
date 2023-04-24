@@ -10,14 +10,14 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-        });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(
+//        policy =>
+//        {
+//            policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+//        });
+//});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -70,7 +70,7 @@ builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
-builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
+builder.Services.AddScoped<IResourceService, ResourceService>();
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));
@@ -93,7 +93,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
 app.Use(async (context, next) => {
     var serviceScope = app.Services.CreateScope();
     var userSecurityService = serviceScope.ServiceProvider.GetRequiredService<IUserSecurityService>();
@@ -104,7 +109,7 @@ app.Use(async (context, next) => {
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 
