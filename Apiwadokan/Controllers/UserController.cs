@@ -42,7 +42,7 @@ namespace Apiwadokan.Controllers
         [HttpPost(Name = "InsertUser")]
         public int InsertUser([FromBody] NewUserRequest newUserRequest)
         {
-            return _userService.InsertUser(newUserRequest);
+            return _userService.InsertUser(newUserRequest); //newUserRequest
         }
 
         [EndpointAuthorize(AllowedUserRols = "Administrador, Operario")]
