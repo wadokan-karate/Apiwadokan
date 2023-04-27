@@ -10,5 +10,6 @@ namespace Apiwadokan.IService
         Task DeleteUserAsync(int id);
         Task<List<UserEntity>> GetAllUsersAsync();
         Task<UserEntity> GetUserByIdAsync(int id);
+        //List<UserEntity> GetAllUsers();
     }
 }
