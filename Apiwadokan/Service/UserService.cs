@@ -39,8 +39,60 @@ namespace Apiwadokan.Service
             newUserItem.EncryptedPassword = await _userSecurityLogic.HashStringAsync(newUserRequest.Password);
             return await _userLogic.InsertUserAsync(newUserItem);
         }
+        public async Task <int> InsertUserAsync(UserEntity userItem)
+        {
+            if (!ValidateModel(userItem))
+            {
+                throw new InvalidDataException();
+            }
+            await _userLogic.InsertUserAsync(userItem);
+            if (!ValidateInsertedEvent(userItem))
 
-        public async Task UpdateUserAsync(UserEntity userItem)
+            {
+                throw new InvalidOperationException();
+            }
+            return userItem.IdRol;
+
+
+        }
+
+
+        // Creamos una nueva clase y Validamos elementos de la clase EventEntitiy
+        public static bool ValidateModel(UserEntity userItem)
+        {
+
+            if (userItem == null)
+            {
+                return false;
+            }
+
+            if (userItem.UserName == null || userItem.UserName == "")
+            {
+                return false; ;
+            }
+
+
+            return true;
+        }
+
+        public static bool ValidateInsertedEvent(UserEntity userItem)
+        {
+            if (!ValidateModel(userItem))
+
+            {
+                return false;
+            }
+            if (userItem.IdRol < 1)
+            {
+                return false;
+            }
+            return true;
+        }
+    
+
+
+
+public async Task UpdateUserAsync(UserEntity userItem)
         {
             await _userLogic.UpdateUserAsync(userItem);
         }

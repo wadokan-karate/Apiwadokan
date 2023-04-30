@@ -14,4 +14,3 @@ namespace Apiwadokan.IService
         Task<EventEntity> GetEventByIdAsync(int id);
     }
 }
-

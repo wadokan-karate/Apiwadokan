@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lgKtVUog08qDtu/p4EkMwTib7A/NPATfGoc+FhWPc7Dfye6PxgiUsCex2E6doZbxX/rEY9zrIBEkfFZ5YdDtcA==",
+  "dgSpecHash": "l3uQuXKPLbL9A/b2eqd34SZ19rneJ//2WuY4m0LTG5hKuueidLuuOa14BWJKd1fOkC03mYVCVSzB/oC/7kMwAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Logic\\Logic.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\proyectos\\Apiwadokan\\Logic\\Logic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

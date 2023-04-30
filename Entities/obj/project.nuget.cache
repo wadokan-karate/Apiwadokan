@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MwpM7HNssGSm9OEg6pJaB2kYqDwWRrllhBYgPkYbxU1thYx2/z8X17ZLlg5x7tm5AVxVGmebDIy8V4mdf4pRCQ==",
+  "dgSpecHash": "LaT3Dz7wBapddEIu4Jy+2FMOrPSbaZCfSYmli6ymlhpK9friJjOdHYATFJfjD6OGvOw6vKoPprrmDi31wMCaPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\Apiwadokan\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\proyectos\\Apiwadokan\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

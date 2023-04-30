@@ -22,3 +22,15 @@ C:\Users\mctri\FactoriaF5-FemCoder\proyectos\wadokan\Apiwadokan\Entities\obj\Deb
 C:\Users\mctri\FactoriaF5-FemCoder\proyectos\wadokan\Apiwadokan\Entities\obj\Debug\net6.0\refint\Entities.dll
 C:\Users\mctri\FactoriaF5-FemCoder\proyectos\wadokan\Apiwadokan\Entities\obj\Debug\net6.0\Entities.pdb
 C:\Users\mctri\FactoriaF5-FemCoder\proyectos\wadokan\Apiwadokan\Entities\obj\Debug\net6.0\ref\Entities.dll
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\bin\Debug\net6.0\Entities.deps.json
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\bin\Debug\net6.0\Entities.dll
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\bin\Debug\net6.0\Entities.pdb
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.dll
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\refint\Entities.dll
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\Entities.pdb
+C:\Users\ADMIN\Desktop\proyectos\Apiwadokan\Entities\obj\Debug\net6.0\ref\Entities.dll
