@@ -7,17 +7,19 @@ using Logic.Logic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddCors(options =>
+/*builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
         policy =>
         {
             policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
         });
-});
+});*/
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -54,11 +56,8 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
-
 builder.Services.AddScoped<IEventLogic, EventLogic>();
 builder.Services.AddScoped<IEventService, EventService>();
-builder.Services.AddScoped<IFileService, FileService>();
-builder.Services.AddScoped<IFileLogic, FileLogic>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
 builder.Services.AddScoped<IScheduleLogic, ScheduleLogic>();
 builder.Services.AddScoped<ITrainerService, TrainerService>();
@@ -69,7 +68,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
-builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
+builder.Services.AddScoped<IResourceService, ResourceService>();
 builder.Services.AddScoped<IResourceLogic, ResourceLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(
@@ -80,8 +79,8 @@ builder.Services.AddCors(options =>
     builder =>
     {
         builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader();
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
 
@@ -94,6 +93,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
+
 app.Use(async (context, next) => {
     var serviceScope = app.Services.CreateScope();
     var userSecurityService = serviceScope.ServiceProvider.GetRequiredService<IUserSecurityService>();
@@ -104,7 +110,7 @@ app.Use(async (context, next) => {
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 

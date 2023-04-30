@@ -5,10 +5,11 @@ namespace Apiwadokan.IService
 {
     public interface IUserService
     {
-        int InsertUser(NewUserRequest newProductRequest);
-        void UpdateUser(UserEntity userEntity);
-        void DeleteUser(int id);
-        List<UserEntity> GetAllUsers();
-       
+        Task<int> InsertUserAsync(NewUserRequest newProductRequest);
+        Task UpdateUserAsync(UserEntity userEntity);
+        Task DeleteUserAsync(int id);
+        Task<List<UserEntity>> GetAllUsersAsync();
+        Task<UserEntity> GetUserByIdAsync(int id);
+        //List<UserEntity> GetAllUsers();
     }
 }

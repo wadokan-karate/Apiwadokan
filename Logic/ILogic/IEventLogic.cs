@@ -9,10 +9,10 @@ namespace Logic.ILogic
 {
     public interface IEventLogic
     {
-        void DeleteEventById(int Id);
-        List<EventEntity> GetEvent();
-        List<EventEntity> GetAllEvents();
-        void InsertEvent(EventEntity product);
-        void PatchEvent(EventEntity product);
+        Task<int> InsertEventAsync(EventEntity eventEntity);
+        Task UpdateEventAsync(EventEntity eventEntity);
+        Task DeleteEventAsync(int id);
+        Task<List<EventEntity>> GetAllEventsAsync();
+        Task<EventEntity> GetEventByIdAsync(int id);
     }
 }

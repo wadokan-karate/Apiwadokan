@@ -9,10 +9,10 @@ namespace Logic.ILogic
 {
     public interface ITrainerLogic
     {
-        int InsertTrainer(TrainerEntity trainerEntity);
-        void UpdateTrainer(TrainerEntity trainerEntity);
-        void DeleteTrainer(int id);
-        List<TrainerEntity> GetAllTrainers();
-        TrainerEntity GetTrainerById(int id);
+        Task<int> InsertTrainerAsync(TrainerEntity trainerEntity);
+        Task UpdateTrainerAsync(TrainerEntity trainerEntity);
+        Task DeleteTrainerAsync(int id);
+        Task<List<TrainerEntity>> GetAllTrainersAsync();
+        Task<TrainerEntity> GetTrainerByIdAsync(int id);
     }
 }

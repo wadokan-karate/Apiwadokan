@@ -4,6 +4,13 @@ using Entities.Enums;
 using Logic.ILogic;
 using System;
 using System.Collections.Generic;
+using Data;
+using Entities.Entities;
+using Entities.Enums;
+using Logic.ILogic;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,40 +24,27 @@ namespace Logic.Logic
         {
             _serviceContext = serviceContext;
         }
-        public void DeleteUser(int id)
+        public async Task DeleteUserAsync(int id)
         {
-            var userToDelete = _serviceContext.Set<UserEntity>()
-                 .Where(u => u.Id == id).First();
+            var userToDelete = await _serviceContext.Set<UserEntity>()
+                 .Where(u => u.Id == id).FirstAsync();
 
             userToDelete.IsActive = false;
 
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
 
         }
-        public List<UserEntity> GetAllUsers()
+
+        public async Task<List<UserEntity>> GetAllUsersAsync()
         {
-            return _serviceContext.Set<UserEntity>()
-                .Where(u => u.IsActive == true)
-                .ToList();
+            return await _serviceContext.Set<UserEntity>().ToListAsync();
         }
-        //public List<UserItem> GetUsersByCriteria(UserFilter userFilter)
-        //{
-        //    var resultList = _serviceContext.Set<UserItem>()
-        //                        .Where(u => u.IsActive == true);
-
-        //    if (userFilter.InsertDateFrom != null)
-        //    {
-        //        resultList = resultList.Where(u => u.InsertDate > userFilter.InsertDateFrom);
-        //    }
-
-        //    if (userFilter.InsertDateTo != null)
-        //    {
-        //        resultList = resultList.Where(u => u.InsertDate < userFilter.InsertDateTo);
-        //    }
-
-        //    return resultList.ToList();
-        //}
-        public int InsertUser(UserEntity userItem)
+        public async Task<UserEntity> GetUserByIdAsync(int id)
+        {
+            return await _serviceContext.Set<UserEntity>()
+                    .Where(u => u.Id == id).FirstAsync();
+        }
+        public async Task<int> InsertUserAsync(UserEntity userItem)
         {
             if (userItem.IdRol == (int)UserEnums.Administrador)
             {
@@ -60,17 +54,14 @@ namespace Logic.Logic
             userItem.EncryptedToken = "NOT GENERATED";
 
             _serviceContext.Users.Add(userItem);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
 
             return userItem.Id;
         }
-        public void UpdateUser(UserEntity userItem)
+        public async Task UpdateUserAsync(UserEntity userItem)
         {
             _serviceContext.Users.Update(userItem);
-            _serviceContext.SaveChanges();
+            await _serviceContext.SaveChangesAsync();
         }
     }
-
-
-
 }

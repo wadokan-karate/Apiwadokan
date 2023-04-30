@@ -1,50 +1,43 @@
 ﻿using Apiwadokan.IService;
 using Entities.Entities;
 using Logic.ILogic;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
     public class EventService : IEventService
     {
-        //private readonly IProductService _productService;
         private readonly IEventLogic _eventLogic;
         public EventService(IEventLogic eventLogic)
         {
             _eventLogic = eventLogic;
-
         }
 
-        public void DeleteEventById(int id)
+        public async Task<int> InsertEventAsync(EventEntity eventEntity)
         {
-            _eventLogic.DeleteEventById(id);
+            await _eventLogic.InsertEventAsync(eventEntity);
+            return eventEntity.Id;
         }
 
-        public List<EventEntity> GetEvent()
+        public async Task<List<EventEntity>> GetAllEventsAsync()
         {
-            return _eventLogic.GetEvent();
-        }
-        public List<EventEntity> GetAllEvents()
-        {
-            return _eventLogic.GetAllEvents();
-        }
-        public int InsertEvent(EventEntity product)
-        {
-            _eventLogic.InsertEvent(product);
-            return product.Id;
+            return await _eventLogic.GetAllEventsAsync();
         }
 
-        public int PatchEvent(EventEntity product)
+        public async Task<EventEntity> GetEventByIdAsync(int id)
         {
-            _eventLogic.PatchEvent(product);
-            return product.Id;
+            return await _eventLogic.GetEventByIdAsync(id);
         }
 
-        public void AddEvent(EventEntity newEvent)
+        public async Task UpdateEventAsync(EventEntity eventEntity)
         {
-            throw new NotImplementedException();
+            await _eventLogic.UpdateEventAsync(eventEntity);
+        }
+
+        public async Task DeleteEventAsync(int id)
+        {
+            await _eventLogic.DeleteEventAsync(id);
         }
     }
-    
-
-    }
-
+}

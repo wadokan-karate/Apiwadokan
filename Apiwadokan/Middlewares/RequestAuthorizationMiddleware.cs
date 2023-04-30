@@ -6,19 +6,19 @@ namespace Apiwadokan.Middlewares
     public class RequestAuthorizationMiddleware
     {
         private readonly IUserSecurityService _userSecurityService;
+
         public RequestAuthorizationMiddleware(IUserSecurityService userSecurityService)
         {
             _userSecurityService = userSecurityService;
         }
 
-        public void ValidateRequestAutorizathion(HttpContext context)
+        public async Task ValidateRequestAutorizathion(HttpContext context)
         {
-           if(context.Request.Method == "OPTIONS")
+            if (context.Request.Method == "OPTIONS")
             {
                 return;
             }
-            
-            
+
             EndpointAuthorizeAttribute authorization = new EndpointAuthorizeAttribute(context);
 
             if (authorization.Values.AllowsAnonymous)
@@ -26,10 +26,8 @@ namespace Apiwadokan.Middlewares
                 return;
             }
 
-            _userSecurityService.ValidateUserToken(context.Request.Headers.Authorization.ToString(),
+            await _userSecurityService.ValidateUserTokenAsync(context.Request.Headers.Authorization.ToString(),
                                                  authorization.Values.AllowedUserRols);
         }
-        }
     }
-
-
+}

@@ -9,11 +9,10 @@ namespace Entities.Entities
     public class EventEntity
     {
         public int Id { get; set; }
-        public int IdPhotoFile { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime InsertDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
+        public string Image { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

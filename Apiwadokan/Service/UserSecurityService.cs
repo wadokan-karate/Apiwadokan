@@ -1,5 +1,7 @@
 ﻿using Apiwadokan.IService;
 using Logic.ILogic;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.Service
 {
@@ -10,27 +12,30 @@ namespace Apiwadokan.Service
         {
             _userSecurityLogic = userSecurityLogic;
         }
-        public string GenerateAuthorizationToken(string userName, string userPassword)
+
+        public async Task<string> GenerateAuthorizationTokenAsync(string userName, string userPassword)
         {
-            return _userSecurityLogic.GenerateAuthorizationToken(userName, userPassword);
+            return await _userSecurityLogic.GenerateAuthorizationTokenAsync(userName, userPassword);
         }
-        public bool ValidateUserToken(string authorization, List<string> authorizedRols)
+
+        public async Task<bool> ValidateUserTokenAsync(string authorization, List<string> authorizedRols)
         {
             var userName = GetUserNameFromAuthorization(authorization);
             var token = GetTokenFromAuthorization(authorization);
-            return _userSecurityLogic.ValidateUserToken(userName, token, authorizedRols);
+            return await _userSecurityLogic.ValidateUserTokenAsync(userName, token, authorizedRols);
         }
+
         private string GetUserNameFromAuthorization(string authorization)
         {
             var indexToSplit = authorization.IndexOf(':');
             return authorization.Substring(7, indexToSplit - 7);
         }
+
         private string GetTokenFromAuthorization(string authorization)
         {
             var indexToSplit = authorization.IndexOf(':');
             var userName = authorization.Substring(7, indexToSplit - 7);
             return authorization.Substring(indexToSplit + 1, authorization.Length - userName.Length - 8);
         }
-    
     }
 }

@@ -1,14 +1,17 @@
 ﻿using Entities;
 using Entities.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Apiwadokan.IService
 {
     public interface IEventService
     {
-        void DeleteEventById(int id);
-        List<EventEntity> GetEvent ();
-        List<EventEntity> GetAllEvents();
-        int InsertEvent(EventEntity product);
-        int PatchEvent(EventEntity product);
+        Task<int> InsertEventAsync(EventEntity eventEntity);
+        Task UpdateEventAsync(EventEntity eventEntity);
+        Task DeleteEventAsync(int id);
+        Task<List<EventEntity>> GetAllEventsAsync();
+        Task<EventEntity> GetEventByIdAsync(int id);
     }
 }
+

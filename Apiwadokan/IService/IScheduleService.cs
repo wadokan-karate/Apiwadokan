@@ -5,10 +5,10 @@ namespace Apiwadokan.IService
 {
     public interface IScheduleService
     {
-        int InsertSchedule(ScheduleEntity scheduleEntity);
-        void UpdateSchedule(ScheduleEntity scheduleEntity);
-        void DeleteSchedule(int id);
-        List<ScheduleEntity> GetAllSchedules();
-        ScheduleEntity GetScheduleById(int id);
+        Task <int> InsertScheduleAsync(ScheduleEntity scheduleEntity);
+        Task UpdateScheduleAsync(ScheduleEntity scheduleEntity);
+        Task DeleteScheduleAsync(int id);
+        Task<List<ScheduleEntity>> GetAllSchedulesAsync();
+        Task<ScheduleEntity> GetScheduleByIdAsync(int id);
     }
 }
