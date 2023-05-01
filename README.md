@@ -1,6 +1,6 @@
 # Apiwadokan
 
-<h2 align="center"> KARATE WADOKAN-BACK</h2>
+<h2 align="center"> APIWADOKAN-BACK</h2>
 
 
 <div align="center"><img src="https://user-images.githubusercontent.com/117834971/234863466-30d1ee0e-06ad-441e-a420-16d52a7a7b3c.png" width=250></div>
