@@ -45,7 +45,7 @@ It must be noted that, even though the Wadokan Front project may be run using js
 
 | Entities    | Methods         |
 | ------------|:---------------:| 
-|             | GetAll          | 
+| User        | GetAll          | 
 |             | Add/Insert/Post |   
 | File        | Update/Patch    |   
 |             | Deactivate      |    
@@ -61,14 +61,6 @@ It must be noted that, even though the Wadokan Front project may be run using js
 <p align="justify">- Tested User Item Constructor Is Active </p>
 
 <h2 align="justify">  🧪Next Steps:</h2>
-
-
-
-
-
-
-
-
 
 
 
