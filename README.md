@@ -44,6 +44,11 @@ It must be noted that, even though the Wadokan Front project may be run using js
 |             | GetByCriteria   |
 
 > Note that not every entity has all built-in methods in this 1.0 version, but may be implemented in future versions according to the clients' needs. 
+                  
+<h2 align="justify"> 👀  Testing: Back</h2>
+<p align="justify">- Tested Event Service - Validate Model  </p> 
+<p align="justify">- Tested User Entity/Encrypted Password </p> 
+<p align="justify">- Tested User Item Constructor Is Active </p>
 
 <h2 align="justify">  🧪Next Steps:</h2>
 
