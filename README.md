@@ -6,6 +6,51 @@
 
 
 
+<h2 align="justify"> :computer: How to install the project (Back) </h2>
+<p align="justify> This section demonstrates how to set up your own local database and how to connect it to the API we developed specifically for Wadokan Front project to use. 
+It must be noted that, even though the Wadokan Front project may be run using json-server, it is highly recommended to set it up using Apiwadokan Back project.   </h3> 
+<p> </p> 
+
+<h3 align="justify"> Recommended installation steps </h3> 
+
+1. Clone repository (preferably next to Wadokan-Front repository, we go hand in hand)  </p> 
+
+2. Create your own local database in Microsoft SQL Server Management Studio </p> 
+
+3. Connect your new database to Apiwadokan project accessing _appsettings.json_ file </p> 
+4. Run *add-migration _name_ -Project Data* 
+                  
+5. Run *update-database*                 
+
+6. Check the connection is active in the Server Explorer </p> 
+
+7. All set! Build Apiwasokan -Back solution and run _npm run dev_ command in wadokan-Front project </p> 
+
+> While connecting the project to your database, note that your *Data source=...* and *initial catalog=...* corresponds to the name of your computer and the name of your database respectively.  
+
+<h2 align="justify"> :mag: In depth </h2> 
+
+<p align="justify"> Here you can find more information about the built-in entities and methods in 1.0 version of Sakura-Kimonos-Back project. </p> 
+
+
+| Entities    | Methods         |
+| ------------|:---------------:| 
+| User        | GetAll          | 
+|             | Add/Insert/Post |   
+| File        | Update/Patch    |   
+|             | Deactivate      |    
+|             | Delete          |   
+|             | GetById         | 
+|             | GetByCriteria   |
+
+> Note that not every entity has all built-in methods in this 1.0 version, but may be implemented in future versions according to the clients' needs. 
+
+<h2 align="justify">  🧪Next Steps:</h2>
+
+
+
+
+
 
 
 
