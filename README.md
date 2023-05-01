@@ -1,9 +1,16 @@
 # Apiwadokan
 
+<h2 align="center"> KARATE WADOKAN-BACK</h2>
+
+
+<div align="center"><img src="https://user-images.githubusercontent.com/117834971/234863466-30d1ee0e-06ad-441e-a420-16d52a7a7b3c.png" width=250></div>
 
 
 
 
+
+<h2 align="justify"> 📝Project description:</h2>
+<p align="justify">This pedagogical project was created as a final presentation of the full stack bootcamp of Factoria F5 and Fundación Don Bosco-Sevilla. The goal is to create a website for a real client: Karate Wadokan. Our team created a desktop and responsive website, where the client can publish and change their schedules and class calendar by center/class, upload images, edit and delete these images, edit texts and manage documents sent by students.</p>
 
 
 <h2 align="justify"> :computer: How to install the project (Back) </h2>
