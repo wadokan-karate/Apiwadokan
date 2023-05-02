@@ -13,7 +13,8 @@
 <p align="justify">This pedagogical project was created as a final presentation of the full stack bootcamp of Factoria F5 and Fundación Don Bosco-Sevilla. The goal is to create a website for a real client: Karate Wadokan. Our team created a desktop and responsive website, where the client can publish and change their schedules and class calendar by center/class, upload images, edit and delete these images, edit texts and manage documents sent by students.</p>
 
 <h2 align="justify"> 🔧Stacks:</h2>
-<p align="justify">| Node.js | NPM | React |JavaScript | CSS3 | HTML5 | C# | ASP.NET Core 6 | Entity Framework 7 | SQL Server| Tailwind CSS |</p>
+<p align="justify"> C# | ASP.NET Core 6 | Entity Framework 7 | SQL Server|</p>
+<img src="https://user-images.githubusercontent.com/117834971/235618927-2666f6fd-5e7f-493e-8c1a-66620494bfdf.jpg" width=50 align="justify"</div><div align="https://user-images.githubusercontent.com/117834971/235618986-3bd01f10-8666-40b4-92c6-8292eee75373.png" width=50</div><div align="justify"><img src="https://user-images.githubusercontent.com/117834971/235619174-ff10699b-6d8e-4c62-82b4-354928900a17.jpg" width=50</div><div align="justify"><img src="https://user-images.githubusercontent.com/117834971/235619020-a4a2aa40-9be1-4135-ad5c-50df5c92e89f.jpg" width=50</div>
 
 
 <h2 align="justify"> :computer: How to install the project (Back) </h2>
@@ -34,7 +35,7 @@ It must be noted that, even though the Wadokan Front project may be run using js
 
 6. Check the connection is active in the Server Explorer </p> 
 
-7. All set! Build Apiwasokan -Back solution and run _npm run dev_ command in wadokan front project </p> 
+7. All set! Build Apiwadokan -Back solution and run _npm run dev_ command in wadokan front project </p> 
 
 > While connecting the project to your database, note that your *Data source=...* and *initial catalog=...* corresponds to the name of your computer and the name of your database respectively.  
 
@@ -43,15 +44,15 @@ It must be noted that, even though the Wadokan Front project may be run using js
 <p align="justify"> Here you can find more information about the built-in entities and methods in 1.0 version of Apiwadokan back project. </p> 
 
 
-| Entities    | Methods         |
-| ------------|:---------------:| 
-| User        | GetAll          | 
-|             | Add/Insert/Post |   
-| File        | Update/Patch    |   
-|             | Deactivate      |    
-|             | Delete          |   
-|             | GetById         | 
-|             | GetByCriteria   |
+| Entities    |                          Methods                              |
+| ------------|:-------------------------------------------------------------:| 
+| User        | GetAll/ Add/ Insert / Post/ Update/ Patch/ DeleteById/ GetById| 
+| Event       | GetAll/ Add/ Insert / Post/ Update/ Patch/ DeleteById/ GetById|   
+| Resource    | GetAll/ Add/ Insert / Post/ Update/ Patch/ DeleteById/ GetById|   
+| Schedule    | GetAll/ Add/ Insert / Post/ Update/ Patch/ DeleteById/ GetById|    
+| Trainer     | GetAll/ Add/ Insert / Post/ Update/ Patch/ DeleteById/ GetById|   
+ 
+
 
 > Note that not every entity has all built-in methods in this 1.0 version, but may be implemented in future versions according to the clients' needs. 
                   
