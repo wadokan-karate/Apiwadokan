@@ -14,7 +14,13 @@
 
 <h2 align="justify"> 🔧Stacks:</h2>
 <p align="justify"> C# | ASP.NET Core 6 | Entity Framework 7 | SQL Server|</p>
-<img src="https://user-images.githubusercontent.com/117834971/235618927-2666f6fd-5e7f-493e-8c1a-66620494bfdf.jpg" width=50 align="justify"</div><div align="https://user-images.githubusercontent.com/117834971/235618986-3bd01f10-8666-40b4-92c6-8292eee75373.png" width=50</div><div align="justify"><img src="https://user-images.githubusercontent.com/117834971/235619174-ff10699b-6d8e-4c62-82b4-354928900a17.jpg" width=50</div><div align="justify"><img src="https://user-images.githubusercontent.com/117834971/235619020-a4a2aa40-9be1-4135-ad5c-50df5c92e89f.jpg" width=50</div>
+<img src="https://user-images.githubusercontent.com/117834971/235619020-a4a2aa40-9be1-4135-ad5c-50df5c92e89f.jpg" width=50 >  
+<img src="https://user-images.githubusercontent.com/117834971/235618927-2666f6fd-5e7f-493e-8c1a-66620494bfdf.jpg" width=100 ><img src="https://user-images.githubusercontent.com/117834971/235618986-3bd01f10-8666-40b4-92c6-8292eee75373.png" width=100><img src="https://user-images.githubusercontent.com/117834971/235619174-ff10699b-6d8e-4c62-82b4-354928900a17.jpg" width=100>
+
+  
+  
+  
+
 
 
 <h2 align="justify"> :computer: How to install the project (Back) </h2>
