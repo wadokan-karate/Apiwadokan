@@ -9,11 +9,16 @@
 
 
 
+
 <h2 align="justify"> 📝Project description:</h2>
 <p align="justify">This pedagogical project was created as a final presentation of the full stack bootcamp of Factoria F5 and Fundación Don Bosco-Sevilla. The goal is to create a website for a real client: Karate Wadokan. Our team created a desktop and responsive website, where the client can publish and change their schedules and class calendar by center/class, upload images, edit and delete these images, edit texts and manage documents sent by students.</p>
 
 <h2 align="justify"> 🔧Stacks:</h2>
 <p align="justify"> C# | ASP.NET Core 6 | Entity Framework 7 | SQL Server|</p>  
+
+<h3 align="justify">  ✅ Data Flow Diagram:</h3>
+
+<div align="center"><img src="https://user-images.githubusercontent.com/117834971/236006559-1ea9cf03-fd7e-4c1f-b00a-460449423654.png" width=900></div>
 
 <h2 align="justify"> :computer: How to install the project (Back) </h2>
 <p align="justify> This section demonstrates how to set up your own local database and how to connect it to the API we developed specifically for Wadokan Front project to use. 
