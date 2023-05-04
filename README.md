@@ -14,11 +14,18 @@
 <p align="justify">This pedagogical project was created as a final presentation of the full stack bootcamp of Factoria F5 and Fundación Don Bosco-Sevilla. The goal is to create a website for a real client: Karate Wadokan. Our team created a desktop and responsive website, where the client can publish and change their schedules and class calendar by center/class, upload images, edit and delete these images, edit texts and manage documents sent by students.</p>
 
 <h2 align="justify"> 🔧Stacks:</h2>
+
 <p align="justify"> C# | ASP.NET Core 6 | Entity Framework 7 | SQL Server|</p>  
+
 
 <h3 align="justify">  ✅ Data Flow Diagram:</h3>
 
-<div align="center"><img src="https://user-images.githubusercontent.com/117834971/236006559-1ea9cf03-fd7e-4c1f-b00a-460449423654.png" width=900></div>
+<div align="center"><img width="1100" alt="DataFlowDiagram-Wadokan" src="https://user-images.githubusercontent.com/117834971/236313957-ddcdc4da-c330-4e18-95c1-7db925b91838.png"></div>
+
+
+
+
+
 
 <h2 align="justify"> :computer: How to install the project (Back) </h2>
 <p align="justify> This section demonstrates how to set up your own local database and how to connect it to the API we developed specifically for Wadokan Front project to use. 
@@ -63,15 +70,6 @@ It must be noted that, even though the Wadokan Front project may be run using js
 <p align="justify">- Tested Event Service - Validate Model  </p> 
 <p align="justify">- Tested User Entity/Encrypted Password </p> 
 <p align="justify">- Tested User Item Constructor Is Active </p>
-
-<h2 align="justify">  🧪Next Steps:</h2>
-
-
-
-
-
-
-
 
 
 ## 👩‍💻Group members:
